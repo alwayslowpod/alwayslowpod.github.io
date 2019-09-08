@@ -2,6 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f50076-52b0-4a65-a363-d24b638b1e0f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/avatars/user-01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/avatars/user-02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/avatars/user-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/avatars/user-04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/avatars/user-05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/003.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/003.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,19 +18,29 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QWw0iI5rthmO2MwznizKxEsa54" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/notes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/notes" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/notes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -47,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567899439278</updated>
-      <workItem from="1567899442110" duration="1272000" />
+      <workItem from="1567899442110" duration="18320000" />
     </task>
     <servers />
   </component>
