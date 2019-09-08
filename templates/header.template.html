@@ -6,7 +6,7 @@
         </a>
     </div> <!-- end header__logo -->
 
-    <ul class="header__social cms-template-social">
+    <ul class="header__social cms-template" data-cms-template="social">
 
     </ul> <!-- end header__social -->
 
@@ -34,17 +34,18 @@
         <h2 class="header__nav-heading h6">Site Navigation</h2>
 
         <ul class="header__nav">
-            <li class="current"><a href="index.html" title="">Home</a></li>
+            <li class="d-current"><a href="/" title="">Home</a></li>
             <li class="has-children">
                 <a href="#0" title="">Episodes</a>
                 <ul class="sub-menu">
                     <li class="cms-iterate" data-cms-iterate="posts" data-cms-iterate-limit="6">
-                        <a href="#" class="cms-item" data-cms-item="$iterate.short"></a>
+                        <a class="cms-item cms-attr-href" href="#" data-cms-attr-href="{/view.html?st=posts&sb=}.$iterate.@id" data-cms-item="$iterate.short"></a>
+                    </li>
+                    <li>
+                        <a href="#">Episode Archive</a>
                     </li>
                 </ul>
             </li>
-            <li><a href="/about.html" title="">About</a></li>
-            <li><a href="/contact.html" title="">Contact</a></li>
         </ul> <!-- end header__nav -->
 
         <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>

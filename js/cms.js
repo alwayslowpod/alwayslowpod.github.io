@@ -17,6 +17,26 @@ window.cms = {
             return returns
         },
     },
+    params: {},
+    async templates(target = 'html'){
+        const $targets = $(target).find('.cms-template')
+        const targets = []
+        $targets.each((k, t) => targets.push(t))
+        // if ( !Array.isArray(targets) ){ console.log('not array ', targets); return; }
+        for ( const key in targets ){
+            if ( !targets.hasOwnProperty(key) ) continue
+            const $item = $(targets[key])
+            if ( $item.attr('data-cms-template') ){
+                await this.load($item, $item.attr('data-cms-template'))
+                await this.templates(targets[key]) // for any nested templates
+            }
+        }
+    },
+    load($target, template){
+        return new Promise((resolve, reject) => {
+            $target.load(`/templates/${template}.template.html`, () => resolve())
+        })
+    },
     inject(){
         $('.cms-iterate').each((key, item) => {
             const $item = $(item)
@@ -52,6 +72,8 @@ window.cms = {
                                 $subitem.html(current)
                                 $subitem.attr('data-cms-complete', true)
                             }
+                            // TODO if iterate in middle
+                            // TODO if no iterate, then just resolve
                         }
                     })
 
@@ -118,10 +140,33 @@ window.cms = {
             }
         })
     },
+    parse(){
+        const params = new URLSearchParams(window.location.search)
+        const stream_key = params.get('st')
+        if ( stream_key ){
+            this.params.stream = this.stream.streams[stream_key]
+
+            const subject_key = params.get('sb')
+            if ( subject_key ){
+                this.params.subject = this.stream.resolve(`${stream_key}.${subject_key}`)
+            }
+        }
+
+        const index_key = params.get('i')
+        if ( index_key ){
+            this.params.index = this.stream.indices[index_key]
+        }
+    },
+    async render(){
+        this.parse()
+        await this.templates()
+        this.inject()
+    },
     stream: {
         streams: {},
         indices: {},
         register(name, stream){
+            Object.keys(stream).forEach((key) => stream[key]['@id'] = key)
             this.streams[name] = stream
         },
         index(name, values){
@@ -130,7 +175,8 @@ window.cms = {
         resolve(key){
             const key_parts = key.split('.')
 
-            let current = this.streams ? this.streams : {}
+            let current = this.streams ? this.streams : false
+            let string = ''
             key_parts.forEach((part) => {
                 let skip = false
                 if ( part.startsWith('$latest') ){
@@ -142,13 +188,25 @@ window.cms = {
                     current = this.indices[part.replace('#', '')]
                     skip = true
                 }
+                else if ( part.startsWith('?') ){
+                    current = cms.params[part.replace('?', '')]
+                    skip = true
+                }
+                else if ( part.startsWith('{') ){
+                    if ( current !== this.streams ) string = toString(current)
+                    string = string + part.slice(1, -1)
+                    skip = true
+                }
 
                 if ( current && !skip ){
-                    if ( Object.keys(current).includes(part) ) current = current[part]
+                    if ( Object.keys(current).includes(part) ){
+                        current = current[part]
+                    }
                     else current = false
                 }
             })
 
+            if ( string.length > 0 ) return (current === this.streams) ? string : string+current
             return current
         },
         accrue(stream_name, key, limit = false){

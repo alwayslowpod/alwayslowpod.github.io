@@ -2,7 +2,7 @@ const posts_stream = {
     'e003': {
         tags: ['003 - Salt Lake City, UT'],
         title: 'Meth-Head Conservatory, Wildlife Refuge, and Viewing Area',
-        short: '003 - Salt Lake City, UT',
+        short: 'Episode 003 - Salt Lake City, UT',
         image: 'images/post_images/003/salt-lake-city.jpg',
         thumbnail: 'images/avatars/cover.jpg',
         date: {
@@ -18,7 +18,7 @@ const posts_stream = {
     'e002': {
         tags: ['002 - Providence, RI'],
         title: 'Ignorant Meat Tanks',
-        short: '002 - Providence, RI',
+        short: 'Episode 002 - Providence, RI',
         image: 'images/post_images/002/rhode_island.jpg',
         thumbnail: 'images/avatars/cover.jpg',
         date: {
@@ -34,7 +34,7 @@ const posts_stream = {
     'e001': {
         tags: ['001 - Omaha, NE'],
         title: 'Search for the Jumbo-Mallows',
-        short: '001 - Omaha, NE',
+        short: 'Episode 001 - Omaha, NE',
         image: 'images/post_images/001/buffett.jpg',
         thumbnail: 'images/avatars/cover.jpg',
         date: {

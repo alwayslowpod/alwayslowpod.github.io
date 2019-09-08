@@ -37,7 +37,7 @@
     ================================================== -->
     <section class="s-pageheader s-pageheader--home">
 
-        <header class="header cms-template" data-cms-template="header">
+        <header class="header" id="header-content">
 
         </header> <!-- header -->
 
@@ -194,14 +194,14 @@
                 Always Low Prices is a podcast of questionable comedy hosted by two siblings, Piper & Garrett Mills. In each episode, we read funny reviews of everyone's favorite mega-retailer: Walmart. Each episode features stores in a specific city. Beside reading and discussing the reviews, we also chat, catch up, and discuss Walmart-related news. You can listen wherever podcasts are available.
                 </p>
 
-                <ul class="about__social cms-template" data-cms-template="social">
+                <ul class="about__social cms-template-social">
 
                 </ul> <!-- end header__social -->
             </div> <!-- end about -->
 
         </div> <!-- end row -->
 
-        <div class="row bottom tags-wrap cms-template" data-cms-template="tags">
+        <div class="row bottom tags-wrap" id="tags-content">
 
         </div> <!-- end tags-wrap -->
 
@@ -210,7 +210,7 @@
 
     <!-- s-footer
     ================================================== -->
-    <footer class="s-footer cms-template" data-cms-template="footer">
+    <footer class="s-footer" id="footer-template-holder">
 
 
 
@@ -235,12 +235,21 @@
     <!-- Java Script
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $('#header-content').load('templates/header.template.html', () => {
+            $('#tags-content').load('templates/tags.template.html', () => {
+                $('#footer-template-holder').load('templates/footer.template.html', () => {
+                    $('.cms-template-social').each((key, item) => $(item).load('templates/social.template.html'))
+                    cms.inject()
+                })
+            })
+        })
+    </script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cms.js"></script>
     <script src="content/posts.stream.js"></script>
 
-    <script> /* This needs to be last! */ cms.render() </script>
 </body>
 
 </html>

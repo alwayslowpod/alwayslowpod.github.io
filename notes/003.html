@@ -37,7 +37,7 @@
         ================================================== -->
     <section class="s-pageheader">
 
-        <header class="header" id="header-content">
+        <header class="header cms-template" data-cms-template="header">
 
         </header> <!-- header -->
 
@@ -100,7 +100,7 @@
 
     <!-- s-footer
     ================================================== -->
-    <footer class="s-footer" id="footer-content">
+    <footer class="s-footer cms-template" data-cms-template="footer">
 
 
 
@@ -124,13 +124,13 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script>
-        $('#header-content').load('/templates/header.template.html')
-        $('#footer-content').load('/templates/footer.template.html')
-    </script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/cms.js"></script>
+    <script src="/content/posts.stream.js"></script>
+
+    <script> /* This needs to be last! */ cms.render() </script>
 
 </body>
 
